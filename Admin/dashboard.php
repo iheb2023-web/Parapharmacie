@@ -257,7 +257,16 @@ $produits = $produitController->liste();
 require_once(".../controllers/CommandeController.php");
 require_once(".../models/Commande.php");
 $CommandeController = new CommandeController();
-$produits = $CommandeController->liste();
+$commandes = $CommandeController->liste();
+
+require_once(".../controllers/ProduitController.php");
+require_once(".../models/Produit.php");
+$produitController = new ProduitController();
+
+require_once('.../controllers/ClientController.php');
+require_once('.../models/Client.php');
+$ClientController = new ClientController();
+
 ?>
 <div class="row my-5">
     <h3 class="fs-4 mb-3">Liste des Commandes</h3>
@@ -280,12 +289,14 @@ $produits = $CommandeController->liste();
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($produits as $index => $commande) { ?>
+            <?php foreach ($commandes as $index => $commande) { 
+                    $Client = $ClientController->getClient($commande['CinCli']);
+                    $produits = $produitController->getProduitAff($commande['idProd']);?>
                     <tr>
                         <th scope="row"><?php echo $index + 1; ?></th>
                         <td><?php echo $commande['CinCli']; ?></td>
-                        <td><?php echo $commande['nomCli']; ?></td>
-                        <td><?php echo $commande['nomProd']; ?></td>
+                        <td><?php echo $Client['nom']; ?></td>
+                        <td><?php echo $produits['libelle']; ?></td>
                         <td><?php echo $commande['idProd']; ?></td>
                         <td><?php echo $commande['dateCommande']; ?></td>
                         <td><?php echo $commande['total']; ?></td>

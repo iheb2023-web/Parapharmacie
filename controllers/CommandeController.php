@@ -11,12 +11,10 @@ class CommandeController extends Connexion
 
     function insert(Commande $commande)
     {
-            $query = "INSERT INTO commande (CinCli,nomCli,nomProd, idProd, dateCommande, total, statut, modePaiement, adresseLivraison, dateLivraison) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $query = "INSERT INTO commande (CinCli, idProd, dateCommande, total, statut, modePaiement, adresseLivraison, dateLivraison) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             $res = $this->pdo->prepare($query);
             $array = array(
                 $commande->getCinCli(),
-                $commande->getNomCli(),
-                $commande->getNomProd(),
                 $commande->getIdProd(),
                 $commande->getDateCommande(),
                 $commande->getTotal(),

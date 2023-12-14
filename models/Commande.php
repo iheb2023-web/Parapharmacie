@@ -1,12 +1,10 @@
 <?php
 
 class Commande {
-    private $CinCli,$nomCli,$nomProd, $idProd, $dateCommande,$total,$statut,$modePaiment,$adresseLivraison,$dateLivraison;
+    private $CinCli, $idProd, $dateCommande,$total,$statut,$modePaiment,$adresseLivraison,$dateLivraison;
 
-    function __construct($CinCli = "",$nomCli="",$nomProd="", $idProd = "", $dateCommande = "", $total = "", $statut = "", $modePaiement = "", $adresseLivraison = "", $dateLivraison = "") {
+    function __construct($CinCli = "", $idProd = "", $dateCommande = "", $total = "", $statut = "", $modePaiement = "", $adresseLivraison = "", $dateLivraison = "") {
         $this->CinCli = $CinCli;
-        $this->nomCli=$nomCli;
-        $this->nomProd=$nomProd;
         $this->idProd = $idProd;
         $this->dateCommande = $dateCommande;
         $this->total = $total;
@@ -32,21 +30,7 @@ class Commande {
         $this->CinCli = $CinCli;
     }
 
-    public function getNomCli() {
-        return $this->nomCli;
-    }
-
-    public function setNomCli($NomCli) {
-        $this->nomCli = $NomCli;
-    }
-
-    public function getNomProd() {
-        return $this->nomProd;
-    }
-
-    public function setNomProd($NomProd) {
-        $this->nomProd = $NomProd;
-    }
+    
 
     public function getIdProd() {
         return $this->idProd;

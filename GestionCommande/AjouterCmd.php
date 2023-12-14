@@ -12,10 +12,8 @@ $modePaiement=$_POST['modePaiement'];
 $adresseLivraison=$_POST['adresseLivraison'];
 $dateLivraison=$_POST['dateLivraison'];
 
-$nomp=$_POST['nomP'];
-$nomc=$_POST['nomC']
 
-$pro = new Commande($CinCli,$nomc,$nomp, $idProd, $dateCommande, $total, $statut, $modePaiement, $adresseLivraison, $dateLivraison);
+$pro = new Commande($CinCli, $idProd, $dateCommande, $total, $statut, $modePaiement, $adresseLivraison, $dateLivraison);
 
 $ProCtr = new CommandeController();
 
